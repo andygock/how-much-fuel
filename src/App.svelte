@@ -101,6 +101,9 @@
   <p>Minimum fuel required: {fuelRequired.toFixed(1)} L</p>
   <p>Estimated laps: {estimatedLaps.toFixed(1)}</p>
   <p>Lap time: {secondsToPrettyString(lapTime)}</p>
+  <div class="footer">
+    <a href="https://github.com/andygock/how-much-fuel">GitHub</a>
+  </div>
 </main>
 
 <style>
@@ -116,5 +119,9 @@
     width: 80px;
     padding: 0.3rem;
     font-size: 120%;
+  }
+  .footer {
+    font-size: smaller;
+    text-align: center;
   }
 </style>
