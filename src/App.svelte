@@ -55,6 +55,12 @@
   onMount(() => {
     localLoad();
   });
+
+  const secondsToPrettyString = (secs) => {
+    const minutes = String(Math.floor(secs / 60));
+    const seconds = String(Math.floor(secs % 60)).padStart(2, "0");
+    return `${minutes}:${seconds}`;
+  };
 </script>
 
 <main>
@@ -72,13 +78,20 @@
   >
   <label
     ><input
+      type="number"
+      min="0"
+      max="1000"
       bind:value={lapTime}
       on:click={handleInputClick}
       on:change={handleInputChange}
-    /> Lap time (s)</label
+    />
+    Lap time (s)</label
   >
   <label
     ><input
+      type="number"
+      min="0"
+      max="6000"
       bind:value={raceDuration}
       on:click={handleInputClick}
       on:change={handleInputChange}
@@ -87,6 +100,7 @@
 
   <p>Minimum fuel required: {fuelRequired.toFixed(1)} L</p>
   <p>Estimated laps: {estimatedLaps.toFixed(1)}</p>
+  <p>Lap time: {secondsToPrettyString(lapTime)}</p>
 </main>
 
 <style>
@@ -99,7 +113,7 @@
     padding: 0.3rem;
   }
   input {
-    width: 50px;
+    width: 80px;
     padding: 0.3rem;
     font-size: 120%;
   }
