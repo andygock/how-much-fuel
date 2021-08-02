@@ -62,6 +62,9 @@
 
   <label
     ><input
+      type="number"
+      min="0"
+      max="100"
       bind:value={fuelRate}
       on:click={handleInputClick}
       on:change={handleInputChange}
