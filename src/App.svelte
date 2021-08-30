@@ -85,7 +85,7 @@
       on:click={handleInputClick}
       on:change={handleInputChange}
     />
-    Lap time (s)</label
+    Lap time (s) = {secondsToPrettyString(lapTime)}</label
   >
   <label
     ><input
