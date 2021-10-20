@@ -5,6 +5,8 @@
   let lapTime = 0; // seconds
   let raceDuration = 0; // minutes
 
+  let lastSelectedInput = null;
+
   // default user inputs
   const defaults = {
     fuelRate: 3,
@@ -16,8 +18,13 @@
   $: estimatedLaps = (raceDuration * 60) / lapTime;
   $: fuelRequired = estimatedLaps * fuelRate;
 
-  // select all text when user clicks on control
-  const handleInputClick = (e) => e.target.select();
+  // select all text when user clicks on control, but only if it is a different input
+  const handleInputClick = (e) => {
+    if (e.target !== lastSelectedInput) {
+      e.target.select();
+    }
+    lastSelectedInput = e.target;
+  };
 
   // save to local storage each time user changes inputs
   const handleInputChange = (e) =>
