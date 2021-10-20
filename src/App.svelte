@@ -64,45 +64,46 @@
 </script>
 
 <main>
-  <h1>How much fuel?</h1>
+  <div class="container">
+    <h1>How much fuel?</h1>
+    <label
+      ><input
+        type="number"
+        min="0"
+        max="100"
+        bind:value={fuelRate}
+        on:click={handleInputClick}
+        on:change={handleInputChange}
+      /> Fuel rate (L/lap)</label
+    >
+    <label
+      ><input
+        type="number"
+        min="0"
+        max="1000"
+        bind:value={lapTime}
+        on:click={handleInputClick}
+        on:change={handleInputChange}
+      />
+      Lap time (s) = {secondsToPrettyString(lapTime)}</label
+    >
+    <label
+      ><input
+        type="number"
+        min="0"
+        max="6000"
+        bind:value={raceDuration}
+        on:click={handleInputClick}
+        on:change={handleInputChange}
+      /> Race duration (m)</label
+    >
 
-  <label
-    ><input
-      type="number"
-      min="0"
-      max="100"
-      bind:value={fuelRate}
-      on:click={handleInputClick}
-      on:change={handleInputChange}
-    /> Fuel rate (L/lap)</label
-  >
-  <label
-    ><input
-      type="number"
-      min="0"
-      max="1000"
-      bind:value={lapTime}
-      on:click={handleInputClick}
-      on:change={handleInputChange}
-    />
-    Lap time (s) = {secondsToPrettyString(lapTime)}</label
-  >
-  <label
-    ><input
-      type="number"
-      min="0"
-      max="6000"
-      bind:value={raceDuration}
-      on:click={handleInputClick}
-      on:change={handleInputChange}
-    /> Race duration (m)</label
-  >
-
-  <p>Minimum fuel required: {fuelRequired.toFixed(1)} L</p>
-  <p>Estimated laps: {estimatedLaps.toFixed(1)}</p>
-  <p>Lap time: {secondsToPrettyString(lapTime)}</p>
-  <div class="footer">
-    <a href="https://github.com/andygock/how-much-fuel">GitHub</a>
+    <p>Minimum fuel required: {fuelRequired.toFixed(1)} L</p>
+    <p>Estimated laps: {estimatedLaps.toFixed(1)}</p>
+    <p>Lap time: {secondsToPrettyString(lapTime)}</p>
+    <div class="footer">
+      <a href="https://github.com/andygock/how-much-fuel">GitHub</a>
+    </div>
   </div>
 </main>
 
@@ -110,6 +111,14 @@
   main {
     font-family: sans-serif;
     color: #333;
+    display: flex;
+    justify-content: center;
+  }
+  .container {
+    border: solid 1px #ccc;
+    padding: 1rem;
+    width: 450px;
+    background-color: white;
   }
   label {
     display: block;
