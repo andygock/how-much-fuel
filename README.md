@@ -6,14 +6,18 @@
 
 A sim racing fuel calculator written in Svelte.
 
+Install [pnpm](https://pnpm.io/)
+
+    npm install -g pnpm
+
 Install dependencies
 
-    yarn
+    pnpm install
 
 Start development server, server listens on <http://localhost:5000>
 
-    yarn dev
+    pnpm dev
 
 Create build files in `public/`
 
-    yarn build
+    pnpm build
